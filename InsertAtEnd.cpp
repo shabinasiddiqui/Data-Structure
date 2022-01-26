@@ -7,26 +7,23 @@ class Node{
     Node *next;
 };
 
-Node* InsertEnd(Node* ptr,int data){
-    Node* end =new Node();
+void InsertEnd(Node* ptr,int data){
+    Node* end =new Node();      //allocate memory for new node 
+    end->data=data;            //added data in new created node
+    end->next=NULL;              
     
-    while(ptr!=NULL){
-       if(ptr->next==NULL){
-         ptr->next=end;
-         end->next = NULL;
+    while(ptr->next!=NULL){  
+        ptr=ptr->next;
+        
     }
-   
-    }
-    Node* beg = new Node();
-    beg->next = ptr;
-    beg->data = data;
-    return beg;
+    ptr->next=end;
 }
+
 
 
 void Print(Node * ptr){
     while(ptr!=NULL){
-        cout<<ptr->data<<endl;
+        cout<<ptr->data<<" ";
         ptr=ptr->next;
     }
 }
@@ -34,7 +31,7 @@ void Print(Node * ptr){
 int main()
 {
     int data;
-    cout<<"Insert data at beginning:"<<endl;
+    cout<<"Insert data at the end of the node : ";
     cin>>data;
  
     Node *head=NULL;
@@ -59,8 +56,9 @@ int main()
     third->data = 1;
     third->next=NULL;
     
-    Node* newhead=InsertEnd(head,data);
-    Print(newhead);
+    InsertEnd(head,data);
+    cout<<"After inserting data at the end of the node :"<<endl;
+    Print(head);
     
 
     return 0;
