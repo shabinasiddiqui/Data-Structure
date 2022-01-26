@@ -52,7 +52,7 @@ int main()
     
     Node* newhead=InsertBeg(head,data);
     cout<<"After Inserting data at beginning of Node: "<<endl;
-   Print(newhead);
+    Print(newhead);
     
 
     return 0;
